@@ -9,19 +9,19 @@ import { preparedBatchExecute, parseBatchExecuteResponse } from 'batchexecute'
 
 // prepare a request
 const encoded = preparedBatchExecute({
-	host: 'example.com',
-	app: 'example',
-	rpcs: [
-		{ id: 'rpc1id', args: ['some', 'args'] },
-		{ id: 'rpc2id', args: ['some', 'args'] },
-	]
+  host: 'example.com',
+  app: 'example',
+  rpcs: [
+    { id: 'rpc1id', args: ['some', 'args'] },
+    { id: 'rpc2id', args: ['some', 'args'] },
+  ]
 })
 
 // make the request
 const resp = await fetch(encoded.url, {
-	method: 'POST',
-	headers: encoded.headers,
-	body: encoded.body,
+  method: 'POST',
+  headers: encoded.headers,
+  body: encoded.body,
 })
 
 const raw = await resp.text()
